@@ -16,3 +16,4 @@ freightops-pro-*.tar
 *.tar.gz
 *.tar
 *.zip
+.env
