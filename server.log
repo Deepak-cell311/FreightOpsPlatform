@@ -1,0 +1,12 @@
+🚀 STARTING CLEAN SERVER
+Warning: connect.session() MemoryStore is not
+designed for a production environment, as it will leak
+memory, and will not scale past a single process.
+✓ Restored 2 active sessions
+🚀 REGISTERING ROUTES
+✓ Restored 2 active sessions
+HQ auth setup placeholder
+HQ auth setup placeholder
+8:04:18 PM [express] FreightOps Pro serving on port 5000
+8:04:18 PM [express] Environment: production
+8:04:18 PM [express] Database: Connected

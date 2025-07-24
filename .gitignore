@@ -1,0 +1,18 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+*.tar
+*.zip
+
+# Large binary files
+attached_assets/*.zip
+attached_assets/*.tar
+attached_assets/*.tar.gz
+freightops-pro-*.tar.gz
+freightops-pro-*.tar
+*.tar.gz
+*.tar
+*.zip
