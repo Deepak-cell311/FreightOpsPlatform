@@ -17,17 +17,17 @@ export async function startDedicatedAPIServer() {
   apiApp.use(cookieParser());
   
   // Session configuration
-  apiApp.use(session({
-    secret: process.env.SESSION_SECRET || 'freightops-secret-2024',
-    resave: false,
-    saveUninitialized: false,
-    name: 'freightops.sid',
-    cookie: {
-      secure: false,
-      httpOnly: true,
-      maxAge: 2 * 60 * 60 * 1000 // 2 hours
-    }
-  }));
+  // apiApp.use(session({
+  //   secret: process.env.SESSION_SECRET || 'freightops-secret-2024',
+  //   resave: false,
+  //   saveUninitialized: false,
+  //   name: 'freightops.sid',
+  //   cookie: {
+  //     secure: false,
+  //     httpOnly: true,
+  //     maxAge: 2 * 60 * 60 * 1000 // 2 hours
+  //   }
+  // }));
 
   // Force JSON responses
   apiApp.use((req, res, next) => {

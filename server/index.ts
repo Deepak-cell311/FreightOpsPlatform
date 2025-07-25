@@ -76,7 +76,7 @@ app.use(performanceMiddleware);
 app.use(driverAppMiddleware);
 
 // High-performance session configuration
-app.use(session(sessionConfig));
+// app.use(session(sessionConfig));
 
 // Sessions now managed by PostgreSQL - no file restoration needed
 console.log('✓ Session store configured with PostgreSQL');

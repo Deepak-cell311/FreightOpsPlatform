@@ -885,7 +885,7 @@ export default function Register() {
         {/* Footer */}
         <div className="text-center mt-8 text-sm text-gray-500">
           Already have an account?{" "}
-          <a href="/auth" className="text-blue-600 hover:underline">
+          <a href="/login" className="text-blue-600 hover:underline">
             Sign in here
           </a>
         </div>

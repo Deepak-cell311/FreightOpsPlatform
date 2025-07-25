@@ -16,16 +16,16 @@ export async function createAPIServer() {
   apiApp.use(cookieParser());
 
   // Session middleware
-  apiApp.use(session({
-    secret: process.env.SESSION_SECRET || 'your-secret-key',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false,
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000
-    }
-  }));
+  // apiApp.use(session({
+  //   secret: process.env.SESSION_SECRET || 'your-secret-key',
+  //   resave: false,
+  //   saveUninitialized: false,
+  //   cookie: {
+  //     secure: false,
+  //     httpOnly: true,
+  //     maxAge: 24 * 60 * 60 * 1000
+  //   }
+  // }));
 
   // Force JSON responses for all routes
   apiApp.use((req, res, next) => {

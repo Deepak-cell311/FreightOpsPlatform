@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Truck, Shield, Users, DollarSign, Eye, EyeOff } from "lucide-react";
+import { Truck, Shield, Users, DollarSign, Eye, EyeOff, SeparatorVertical } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
 import { queryClient } from "@/lib/queryClient";
@@ -44,12 +44,12 @@ export default function SimpleLogin() {
       if (response.ok) {
         // Force refresh the user query to get updated auth state
         await queryClient.invalidateQueries({ queryKey: ["/api/user"] });
-        
+
         toast({
           title: "Login Successful",
           description: "Welcome to FreightOps Pro",
         });
-        
+
         // Small delay to ensure auth state is updated
         setTimeout(() => {
           navigate("/dashboard");
@@ -195,9 +195,9 @@ export default function SimpleLogin() {
                   </div>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full" 
+                <Button
+                  type="submit"
+                  className="w-full"
                   disabled={!email || !password || !customerId}
                 >
                   Sign In
@@ -207,16 +207,28 @@ export default function SimpleLogin() {
               <Separator />
 
 
-
-              <div className="text-center text-sm">
-                <span className="text-gray-600">Need help? </span>
-                <Button
-                  variant="link"
-                  className="p-0 h-auto text-sm"
-                  onClick={() => navigate("/register")}
-                >
-                  Contact Support
-                </Button>
+              <div className="flex flex-row justify-around align-items-center">
+                <div className="text-center text-sm flex flex-row">
+                  <span className="text-gray-600">Need help? </span>
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto text-sm"
+                    onClick={() => navigate("/register")}
+                  >
+                    Contact Support
+                  </Button>
+                </div>
+                <span>|</span>
+                <div className="text-center text-sm">
+                  <span className="text-gray-600">Need an account? </span>
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto text-sm"
+                    onClick={() => navigate("/register")}
+                  >
+                    Signup
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>

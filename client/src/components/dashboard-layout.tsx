@@ -182,7 +182,7 @@ function ContextualSubmenu() {
   
   // Always render with consistent height to prevent jumping
   return (
-    <div className="bg-slate-800 px-6 py-2 h-[48px] flex items-center">
+    <div className="bg-slate-800 px-6 flex items-center">
       {submenuItems.length > 0 ? (
         <nav className="flex space-x-6 overflow-x-auto w-full">
           {submenuItems.map((item) => (

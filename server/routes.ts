@@ -255,6 +255,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
     next();
   });
 
+  // Session middleware: attaches req.user and req.session if session_token is valid
+  app.use(async (req, res, next) => {
+    const token = req.cookies?.session_token;
+    if (token && sessions.has(token)) {
+      const sessionData = sessions.get(token);
+      // Fetch user from DB if needed, or use sessionData.userId
+      const user = await storage.getUser(sessionData.userId);
+      if (user) {
+        req.user = user;
+        req.session = { user }; // for compatibility with your /api/user route
+      }
+    }
+    next();
+  });
+
   // Apply domain redirect middleware only in production with custom domains
   if (process.env.NODE_ENV === 'production' && process.env.CUSTOM_DOMAIN) {
     app.use(domainConfig.handleDomainRedirects.bind(domainConfig));
@@ -721,11 +736,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         );
         
         const company = await storage.createCompany({
-          id: scacIdentifier,
+          id: randomUUID(), // Always use a UUID for the id
           name: companyName,
           email,
           phone,
-          isActive: true
+          isActive: true,
+          scacCode: scacIdentifier
         });
         companyId = company.id;
       }
